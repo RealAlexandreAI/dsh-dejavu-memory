@@ -4,7 +4,7 @@
 
 # dsh-noc-memory
 
-Connects DeepSeek Harness to **Noc Memory**: session-start boot + daily briefing, plus memory read / search / create / update / delete, backed by your own Noc Memory MCP server on Cloudflare.
+Connects DeepSeek Harness to **DejaVu** (Noc Memory): session-start boot + daily briefing, plus memory read / search / create / update / delete, backed by your own Noc Memory MCP server on Cloudflare.
 
 > Port of [pi-noc-memory](https://github.com/RealAlexandreAI/pi-noc-memory) — same protocol, same tool names.
 
@@ -27,23 +27,23 @@ Connects DeepSeek Harness to **Noc Memory**: session-start boot + daily briefing
 dsh plugin --profile web add dsh-noc-memory
 ```
 
-Requires your own Noc Memory server — deploy it to Cloudflare in minutes: [cf-noc-mem](https://github.com/RealAlexandreAI/cf-noc-mem).
+Requires your own DejaVu (cf-dejavu) server — deploy it to Cloudflare in minutes: [cf-noc-mem](https://github.com/RealAlexandreAI/cf-noc-mem).
 
 ```yaml
 - id: noc-memory
   name: dsh-noc-memory
   config:
-    mcp_url: https://mem.example.com/mcp
+    mcp_url: https://dejavu.slahser.com/mcp
     mcp_auth: ""  # prefer mcp_headers for Access service token
 ```
 
-For a server behind Cloudflare Access (e.g. mem.example.com), use the **service token** headers instead of `mcp_auth`:
+For a server behind Cloudflare Access (e.g. dejavu.slahser.com), use the **service token** headers instead of `mcp_auth`:
 
 ```yaml
 - id: noc-memory
   name: dsh-noc-memory
   config:
-    mcp_url: https://mem.example.com/mcp
+    mcp_url: https://dejavu.slahser.com/mcp
     mcp_headers:
       CF-Access-Client-Id: <your client id>
       CF-Access-Client-Secret: <your client secret>
@@ -51,7 +51,7 @@ For a server behind Cloudflare Access (e.g. mem.example.com), use the **service 
 
 | key | required | meaning |
 |---|---|---|
-| `mcp_url` | yes | your Noc Memory MCP endpoint (Streamable HTTP) |
+| `mcp_url` | yes | your DejaVu MCP endpoint (Streamable HTTP) |
 | `mcp_auth` | no | legacy; prefer `mcp_headers` for Cloudflare Access service token |
 | `mcp_headers` | no | extra headers merged into every MCP request (e.g. Cloudflare Access service token) |
 

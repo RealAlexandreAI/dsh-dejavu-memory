@@ -4,7 +4,7 @@
 
 # dsh-noc-memory
 
-给 DeepSeek Harness 接上 **Noc Memory** 长期记忆:会话开始 boot + 每日简报,记忆读写/搜索/更新/删除,后端是部署在 Cloudflare 上的 Noc Memory MCP 服务器。
+给 DeepSeek Harness 接上 **DejaVu**（Noc Memory） 长期记忆:会话开始 boot + 每日简报,记忆读写/搜索/更新/删除,后端是部署在 Cloudflare 上的 Noc Memory MCP 服务器。
 
 > 由 [pi-noc-memory](https://github.com/RealAlexandreAI/pi-noc-memory) 移植,协议与工具名完全一致。
 
@@ -27,23 +27,23 @@
 dsh plugin --profile web add dsh-noc-memory
 ```
 
-需要你能连到自己的 Noc Memory 服务器——几分钟部署到 Cloudflare:[cf-noc-mem](https://github.com/RealAlexandreAI/cf-noc-mem)。
+需要你能连到自己的 DejaVu（cf-dejavu）服务器——几分钟部署到 Cloudflare:[cf-noc-mem](https://github.com/RealAlexandreAI/cf-noc-mem)。
 
 ```yaml
 - id: noc-memory
   name: dsh-noc-memory
   config:
-    mcp_url: https://mem.example.com/mcp
+    mcp_url: https://dejavu.slahser.com/mcp
     mcp_auth: ""  # 优先用 mcp_headers 传 Access service token
 ```
 
-若服务器在 Cloudflare Access 后（例如 `mem.example.com`），用 **service token** 头替代 `mcp_auth`：
+若服务器在 Cloudflare Access 后（例如 `dejavu.slahser.com`），用 **service token** 头替代 `mcp_auth`：
 
 ```yaml
 - id: noc-memory
   name: dsh-noc-memory
   config:
-    mcp_url: https://mem.example.com/mcp
+    mcp_url: https://dejavu.slahser.com/mcp
     mcp_headers:
       CF-Access-Client-Id: <your client id>
       CF-Access-Client-Secret: <your client secret>
@@ -51,7 +51,7 @@ dsh plugin --profile web add dsh-noc-memory
 
 | 键 | 必填 | 含义 |
 |---|---|---|
-| `mcp_url` | 是 | 你的 Noc Memory MCP 端点(Streamable HTTP) |
+| `mcp_url` | 是 | 你的 DejaVu MCP 端点(Streamable HTTP) |
 | `mcp_auth` | 否 | 遗留字段；优先用 `mcp_headers` 传 Cloudflare Access service token |
 
 > **从 dsh-nocturne-memory(≤0.1.x)升级:** 已改名为 `dsh-noc-memory`,工具名 `nocturne_*` → `noc_*`。删除旧插件后重新添加新包;更新提示词里所有 `nocturne_*` 工具引用。
