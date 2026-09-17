@@ -4,7 +4,7 @@
 
 # dsh-dejavu-memory
 
-给 DeepSeek Harness 接上 **DejaVu**（Noc Memory） 长期记忆:会话开始 boot + 每日简报,记忆读写/搜索/更新/删除,后端是部署在 Cloudflare 上的 Noc Memory MCP 服务器。
+给 DeepSeek Harness 接上 **DejaVu** 长期记忆:会话开始 boot + 每日简报,记忆读写/搜索/更新/删除,后端是部署在 Cloudflare 上的 DejaVu MCP 服务器。
 
 > 由 [pi-dejavu-memory](https://github.com/RealAlexandreAI/pi-dejavu-memory) 移植,协议与工具名完全一致。
 
@@ -33,17 +33,17 @@ dsh plugin --profile web add dsh-dejavu-memory
 - id: dejavu
   name: dsh-dejavu-memory
   config:
-    mcp_url: https://dejavu.slahser.com/mcp
+    mcp_url: https://dejavu.example.com/mcp
     mcp_auth: ""  # 优先用 mcp_headers 传 Access service token
 ```
 
-若服务器在 Cloudflare Access 后（例如 `dejavu.slahser.com`），用 **service token** 头替代 `mcp_auth`：
+若服务器在 Cloudflare Access 后（例如 `dejavu.example.com`），用 **service token** 头替代 `mcp_auth`：
 
 ```yaml
 - id: dejavu
   name: dsh-dejavu-memory
   config:
-    mcp_url: https://dejavu.slahser.com/mcp
+    mcp_url: https://dejavu.example.com/mcp
     mcp_headers:
       CF-Access-Client-Id: <your client id>
       CF-Access-Client-Secret: <your client secret>

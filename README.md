@@ -7,7 +7,7 @@
 > **Renamed:** former npm/GitHub package `dsh-noc-memory` → **`dsh-dejavu-memory`**. Prefer this package; deprecate the old name when publishing.
 
 
-Connects DeepSeek Harness to **DejaVu** (Noc Memory): session-start boot + daily briefing, plus memory read / search / create / update / delete, backed by your own Noc Memory MCP server on Cloudflare.
+Connects DeepSeek Harness to **DejaVu**: session-start boot + daily briefing, plus memory read / search / create / update / delete, backed by your own DejaVu MCP server on Cloudflare.
 
 > Port of [pi-dejavu-memory](https://github.com/RealAlexandreAI/pi-dejavu-memory) — same protocol, same tool names.
 
@@ -36,17 +36,17 @@ Requires your own DejaVu server — deploy it to Cloudflare in minutes: [DejaVu]
 - id: dejavu
   name: dsh-dejavu-memory
   config:
-    mcp_url: https://dejavu.slahser.com/mcp
+    mcp_url: https://dejavu.example.com/mcp
     mcp_auth: ""  # prefer mcp_headers for Access service token
 ```
 
-For a server behind Cloudflare Access (e.g. dejavu.slahser.com), use the **service token** headers instead of `mcp_auth`:
+For a server behind Cloudflare Access (e.g. dejavu.example.com), use the **service token** headers instead of `mcp_auth`:
 
 ```yaml
 - id: dejavu
   name: dsh-dejavu-memory
   config:
-    mcp_url: https://dejavu.slahser.com/mcp
+    mcp_url: https://dejavu.example.com/mcp
     mcp_headers:
       CF-Access-Client-Id: <your client id>
       CF-Access-Client-Secret: <your client secret>
