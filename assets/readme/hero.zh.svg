@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" role="img" aria-label="dsh-noc-memory —— 给 DeepSeek Harness 接上长期记忆">
-  <title>dsh-noc-memory —— 长期记忆</title>
-  <desc>会话开始自动加载核心记忆与简报,读写你的 Noc Memory 服务器。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" role="img" aria-label="dsh-dejavu-memory —— 给 DeepSeek Harness 接上长期记忆">
+  <title>dsh-dejavu-memory —— 长期记忆</title>
+  <desc>会话开始自动加载核心记忆与简报,读写你的 DejaVu 服务器。</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#141226"/>
@@ -13,7 +13,7 @@
   </defs>
   <rect width="1200" height="300" rx="20" fill="url(#bg)"/>
 
-  <text x="64" y="86" font-family="-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif" font-size="46" font-weight="700" fill="#f5f7fa">dsh-noc-memory</text>
+  <text x="64" y="86" font-family="-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif" font-size="46" font-weight="700" fill="#f5f7fa">dsh-dejavu-memory</text>
   <text x="64" y="128" font-family="-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif" font-size="24" fill="#9aa7b8">给 agent 的长期记忆</text>
   <rect x="64" y="150" width="200" height="6" rx="3" fill="url(#accent)"/>
 
