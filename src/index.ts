@@ -2,7 +2,7 @@
 //
 // Noc Memory client: automated long-term memory for the agent,
 // backed by YOUR OWN Noc MCP server (mcp_url). Ported from
-// pi-noc-memory — same MCP protocol, same boot protocol, same tools.
+// pi-dejavu-memory — same MCP protocol, same boot protocol, same tools.
 //
 // Tools: noc_boot (session-start memory load), noc_read,
 // noc_search, noc_create, noc_update, noc_delete.

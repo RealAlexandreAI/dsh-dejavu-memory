@@ -1,12 +1,12 @@
-# Plugin bundle for dsh-noc-memory.
-# Registers the Noc Memory tools (noc_boot / read / search /
-# create / update / delete). Configure your own Nocturne MCP server:
+# Plugin bundle for dsh-dejavu-memory.
+# Registers the DejaVu memory tools (noc_boot / read / search /
+# create / update / delete). Configure your own DejaVu MCP server:
 #
-#   - id: noc-memory
-#     name: 'dsh-noc-memory'
+#   - id: dejavu
+#     name: 'dsh-dejavu-memory'
 #     config:
 #       mcp_url: http://localhost:PORT/mcp
 #       mcp_auth: Bearer <your token>
 - insert:
-    - id: noc-memory
-      name: 'dsh-noc-memory'
+    - id: dejavu
+      name: 'dsh-dejavu-memory'

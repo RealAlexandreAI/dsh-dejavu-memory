@@ -1,12 +1,15 @@
 <p align="center">
-  <img src="assets/readme/hero.svg" alt="dsh-noc-memory — long-term memory for DeepSeek Harness" width="100%">
+  <img src="assets/readme/hero.svg" alt="dsh-dejavu-memory — long-term memory for DeepSeek Harness" width="100%">
 </p>
 
-# dsh-noc-memory
+# dsh-dejavu-memory
+
+> **Renamed:** former npm/GitHub package `dsh-noc-memory` → **`dsh-dejavu-memory`**. Prefer this package; deprecate the old name when publishing.
+
 
 Connects DeepSeek Harness to **DejaVu** (Noc Memory): session-start boot + daily briefing, plus memory read / search / create / update / delete, backed by your own Noc Memory MCP server on Cloudflare.
 
-> Port of [pi-noc-memory](https://github.com/RealAlexandreAI/pi-noc-memory) — same protocol, same tool names.
+> Port of [pi-dejavu-memory](https://github.com/RealAlexandreAI/pi-dejavu-memory) — same protocol, same tool names.
 
 [English](README.md) · [中文](README.zh.md)
 
@@ -24,14 +27,14 @@ Connects DeepSeek Harness to **DejaVu** (Noc Memory): session-start boot + daily
 ## Quick start
 
 ```sh
-dsh plugin --profile web add dsh-noc-memory
+dsh plugin --profile web add dsh-dejavu-memory
 ```
 
-Requires your own DejaVu (cf-dejavu) server — deploy it to Cloudflare in minutes: [cf-noc-mem](https://github.com/RealAlexandreAI/cf-noc-mem).
+Requires your own DejaVu server — deploy it to Cloudflare in minutes: [DejaVu](https://github.com/RealAlexandreAI/DejaVu).
 
 ```yaml
-- id: noc-memory
-  name: dsh-noc-memory
+- id: dejavu
+  name: dsh-dejavu-memory
   config:
     mcp_url: https://dejavu.slahser.com/mcp
     mcp_auth: ""  # prefer mcp_headers for Access service token
@@ -40,8 +43,8 @@ Requires your own DejaVu (cf-dejavu) server — deploy it to Cloudflare in minut
 For a server behind Cloudflare Access (e.g. dejavu.slahser.com), use the **service token** headers instead of `mcp_auth`:
 
 ```yaml
-- id: noc-memory
-  name: dsh-noc-memory
+- id: dejavu
+  name: dsh-dejavu-memory
   config:
     mcp_url: https://dejavu.slahser.com/mcp
     mcp_headers:
@@ -55,11 +58,11 @@ For a server behind Cloudflare Access (e.g. dejavu.slahser.com), use the **servi
 | `mcp_auth` | no | legacy; prefer `mcp_headers` for Cloudflare Access service token |
 | `mcp_headers` | no | extra headers merged into every MCP request (e.g. Cloudflare Access service token) |
 
-> **Upgrading from dsh-nocturne-memory (≤0.1.x):** renamed to `dsh-noc-memory`, tools renamed `nocturne_*` → `noc_*`. Remove the old plugin and re-add the new package; update any prompt text referencing `nocturne_*` tools.
+> **Upgrading from dsh-noc-memory:** package renamed to `dsh-dejavu-memory`. Remove the old plugin and re-add; point config `id` at `dejavu`.
 
-## Why noc_* (not nocturne_*)?
+## Why noc_* (not DejaVu_*)?
 
-Some agents probe `read_mcp_resource` before reaching for a memory tool, wasting a round trip ([upstream issue #32](https://github.com/Dataojitori/nocturne_memory/issues/32)). Explicit `noc_boot` / `noc_read` naming in the tool list and boot-protocol prompt steers models straight to the right tool — no resource shim required.
+Some agents probe `read_mcp_resource` before reaching for a memory tool, wasting a round trip ([upstream issue #32](https://github.com/Dataojitori/DejaVu_memory/issues/32)). Explicit `noc_boot` / `noc_read` naming in the tool list and boot-protocol prompt steers models straight to the right tool — no resource shim required.
 
 ## License
 
@@ -67,6 +70,6 @@ MIT
 
 ## Related
 
-- [cf-noc-mem](https://github.com/RealAlexandreAI/cf-noc-mem) — the Cloudflare MCP memory server this plugin talks to
-- [pi-noc-memory](https://github.com/RealAlexandreAI/pi-noc-memory) — same memory tools for Pi
-- [nocturne_memory](https://github.com/Dataojitori/nocturne_memory) — upstream project
+- [DejaVu](https://github.com/RealAlexandreAI/DejaVu) — the Cloudflare MCP memory server this plugin talks to
+- [pi-dejavu-memory](https://github.com/RealAlexandreAI/pi-dejavu-memory) — same memory tools for Pi
+- [DejaVu_memory](https://github.com/Dataojitori/DejaVu_memory) — upstream project
