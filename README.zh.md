@@ -37,6 +37,18 @@ dsh plugin --profile web add dsh-noc-memory
     mcp_auth: ""  # 优先用 mcp_headers 传 Access service token
 ```
 
+若服务器在 Cloudflare Access 后（例如 `mem.example.com`），用 **service token** 头替代 `mcp_auth`：
+
+```yaml
+- id: noc-memory
+  name: dsh-noc-memory
+  config:
+    mcp_url: https://mem.example.com/mcp
+    mcp_headers:
+      CF-Access-Client-Id: <your client id>
+      CF-Access-Client-Secret: <your client secret>
+```
+
 | 键 | 必填 | 含义 |
 |---|---|---|
 | `mcp_url` | 是 | 你的 Noc Memory MCP 端点(Streamable HTTP) |

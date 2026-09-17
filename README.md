@@ -37,13 +37,13 @@ Requires your own Noc Memory server — deploy it to Cloudflare in minutes: [cf-
     mcp_auth: ""  # prefer mcp_headers for Access service token
 ```
 
-For a server behind Cloudflare Access (e.g. noc-mem.slahser.com), use the **service token** headers instead of `mcp_auth`:
+For a server behind Cloudflare Access (e.g. mem.example.com), use the **service token** headers instead of `mcp_auth`:
 
 ```yaml
 - id: noc-memory
   name: dsh-noc-memory
   config:
-    mcp_url: https://noc-mem.slahser.com/mcp
+    mcp_url: https://mem.example.com/mcp
     mcp_headers:
       CF-Access-Client-Id: <your client id>
       CF-Access-Client-Secret: <your client secret>
